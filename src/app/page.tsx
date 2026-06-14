@@ -22,12 +22,12 @@ const invitations = [
 ];
 
 const initialBookingHistory: HistoryItem[] = [
-  { date: "2026-06-01", room: "Boardroom A", duration: "2 hours", status: "Completed" },
-  { date: "2026-05-29", room: "Boardroom B", duration: "1 hour", status: "Completed" },
-  { date: "2026-05-24", room: "Executive Suite", duration: "90 minutes", status: "Completed" },
+  { date: "2026-06-01", room: "Boardroom A", duration: "09:00 - 11:00", status: "Completed" },
+  { date: "2026-05-29", room: "Boardroom B", duration: "15:00 - 16:00", status: "Completed" },
+  { date: "2026-05-24", room: "Executive Suite", duration: "13:30 - 15:00", status: "Completed" },
 ];
 
-const formatDuration = (from: string) => {
+const formatTimeRange = (from: string) => {
   if (!from) {
     return "Pending";
   }
@@ -58,7 +58,7 @@ export default function Home() {
     const newBooking: HistoryItem = {
       room,
       date,
-      duration: formatDuration(time),
+      duration: formatTimeRange(time),
       status: "Confirmed",
     };
 
